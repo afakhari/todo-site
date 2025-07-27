@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block title %}
+  <title>ToDo Site</title>
+  {% endblock %}
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    header .title {
+      margin-left: auto;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="title">
+      <h1><a href="/">سایت برنامه ریزی</a></h1>
+    </div>
+    <div>
+      <a href="#">ورود</a> | <a href="#">ثبت نام</a>
+    </div>
+  </header>
+  <main>
+    {% block main %}{% endblock %}
+  </main>
+  <footer>
+  </footer>
+</body>
+
+</html>
