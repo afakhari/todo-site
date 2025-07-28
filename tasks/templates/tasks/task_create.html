@@ -1,0 +1,9 @@
+{% extends "tasks/base.html" %}
+{% block main %}
+  <h1>فعالیت جدید</h1>
+  <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}  <!-- نمایش خودکار فرم -->
+      <button type="submit">ذخیره</button>
+  </form>
+{% endblock %}

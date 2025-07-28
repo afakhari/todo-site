@@ -1,10 +1,12 @@
 {% extends "tasks/base.html" %}
 {% block main %}
-  {% for task in tasks %}
-    <div>
-      <strong>{{task.title}}</strong>
-      <p>{{task.detail}}</p>
-      <br>
-    </div>
-  {% endfor %}
+{% for task in tasks %}
+<div
+  style="border-left: solid 6px #4CAF50; background-color: rgb(237, 241, 241); margin: 2rem ;padding: 1rem 2rem;border-radius: 1rem;">
+  <strong>{{task.title}}</strong>
+  <p>{{task.details}}</p>
+  <span><b>تاریخ انقضا: </b>{{task.end_date}}</span>
+  <br>
+</div>
+{% endfor %}
 {% endblock %}

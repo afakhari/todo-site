@@ -2,7 +2,13 @@ from django import forms
 from .models import Task
 
 
-class TaskForm(forms.Form):
+class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ['title', 'detail', 'end_date']
+        fields = ['title', 'details', 'end_date']
+        widgets = {
+            'end_date': forms.DateTimeInput(attrs={
+                'type': 'datetime-local',
+                'class': 'form-control',
+            }),
+        }
