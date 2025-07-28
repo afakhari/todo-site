@@ -4,10 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {% block title %}
+  {% block head %}
   <title>ToDo Site</title>
   {% endblock %}
   <style>
+    @font-face {
+      font-family: 'Iranian Sans';
+      src: url('/static/fonts/iranian-sans.ttf');
+    }
+
     * {
       box-sizing: border-box;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -15,6 +20,8 @@
 
     body {
       margin: 0;
+      font-family: 'Iranian Sans', tahoma;
+      direction: rtl;
     }
 
     header {

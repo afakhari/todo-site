@@ -1,9 +1,62 @@
-{% extends "tasks/base.html" %}
-{% block main %}
-  <h1>فعالیت جدید</h1>
-  <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}  <!-- نمایش خودکار فرم -->
-      <button type="submit">ذخیره</button>
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'admin/css/widgets.css' %}">
+</head>
+
+<body>
+  <form action="#" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">send</button>
   </form>
+
+  <script src="{% url 'js-catalog' %}"></script>
+  {{form.media}}
+  <script src="{% static 'admin/js/core.js' %}"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% load static %}
+{% extends "tasks/base.html" %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'admin/css/widgets.css' %}">
 {% endblock %}
+{% block main %}
+<h1>فعالیت جدید</h1>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }} <!-- نمایش خودکار فرم -->
+  <button type="submit">ذخیره</button>
+</form>
+{{form.media}}
+<script src="{% static 'admin/js/core.js' %}"></script>
+{% endblock %} {% endcomment %}

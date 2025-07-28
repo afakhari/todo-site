@@ -1,5 +1,6 @@
 from django import forms
 from .models import Task
+from django_jalali.admin.widgets import AdminSplitjDateTime
 
 
 class TaskForm(forms.ModelForm):
@@ -7,8 +8,5 @@ class TaskForm(forms.ModelForm):
         model = Task
         fields = ['title', 'details', 'end_date']
         widgets = {
-            'end_date': forms.DateTimeInput(attrs={
-                'type': 'datetime-local',
-                'class': 'form-control',
-            }),
+            'end_date': AdminSplitjDateTime
         }
