@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect
+from django.views.generic import DetailView
 from .models import Task
 from .forms import SignUpForm, LoginForm, TaskForm
 # Create your views here.
@@ -54,3 +55,9 @@ def create_task(request):
 def tasks_list(request):
     tasks = Task.objects.all()
     return render(request, 'tasks/tasks_list.html', {'tasks': tasks})
+
+
+class TaskDetailView(DetailView):
+    model = Task
+    template_name = 'tasks/task_detail.html'
+    context_object_name = 'task'

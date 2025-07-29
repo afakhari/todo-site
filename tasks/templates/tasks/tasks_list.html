@@ -4,7 +4,7 @@
 {% for task in tasks %}
 <div
   style="border-left: solid 6px #4CAF50; background-color: rgb(237, 241, 241); margin: 2rem ;padding: 1rem 2rem;border-radius: 1rem;">
-  <strong>{{task.title}}</strong>
+  <a href="{% url 'task_detail' task.pk %}">{{task.title}}</a>
   <p>{{task.details}}</p>
   <span><b>تاریخ انقضا: </b>{{task.deadline|jformat:"%Y/%m/%d - %H:%M"}}</span>
   <br>
