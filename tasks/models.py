@@ -10,7 +10,7 @@ class Task(models.Model):
         default=False, verbose_name='وضعیت انجام')
     created_at = jmodels.jDateTimeField(
         auto_now_add=True, verbose_name='تاریخ ایجاد')
-    end_date = jmodels.jDateTimeField(verbose_name='تاریخ پایان')
+    deadline = jmodels.jDateTimeField(verbose_name='تاریخ پایان')
 
     def __str__(self):
         return self.title

@@ -1,7 +1,43 @@
+from django.contrib import messages
+from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect
 from .models import Task
-from .forms import TaskForm
+from .forms import SignUpForm, LoginForm, TaskForm
 # Create your views here.
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('tasks_list')
+    else:
+        form = SignUpForm()
+    return render(request, 'tasks/signup.html', {'form': form})
+
+
+def user_login(request):
+    if request.method == 'POST':
+        form = LoginForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.success(request, 'ورود موفقیت آمیز بود')
+                return redirect('tasks_list')
+        messages.error(request, 'ورود ناموفق بود')
+    else:
+        form = LoginForm()
+    return render(request, 'tasks/login.html', {'form': form})
+
+
+def user_logout(request):
+    logout(request)
+    return redirect('tasks_list')
 
 
 def create_task(request):

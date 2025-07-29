@@ -1,0 +1,12 @@
+{% extends "tasks/base.html" %}
+{% block header %}
+<title>صفحه ثبت نام</title>
+{% endblock header %}
+{% block main %}
+<h1>فرم ثبت نام</h1>
+<form method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <button type="submit">ثبت نام</button>
+</form>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "tasks/base.html" %}
+{% block head %}
+<title>صفحه ورود</title>
+{% endblock %}
+{% block main %}
+<h1>صفحه ورود</h1>
+<form method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <button type="submit">ورود</button>
+</form>
+{% endblock main %}
